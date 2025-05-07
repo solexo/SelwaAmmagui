@@ -923,6 +923,7 @@
             var contactName = "Maitre Selwa Ammagi - Maitre Selwa Ammagui Notaire";
             var email = "sam.notaire13@gmail.com";
             var address = "Angle Bd.Abdelmoumen et Rue Bachir Laalej - Tetris Center,3eme Etage,Bureau 14 - Casablanca";
+            
             var fullName = "Maitre Selwa Ammagi";
             var nameParts = fullName.split(' ');
             var lastName = nameParts.length > 1 ? nameParts.pop() : fullName;
@@ -941,8 +942,7 @@
                 "TEL;TYPE=WORK,VOICE:" + phoneNumber + "\n" +
                 "ADR;TYPE=WORK:;;" + address + ";;;\n" +
                 "EMAIL;TYPE=WORK:" + email + "\n" +
-                
-            
+                          
             // Add the photo if available (base64 format)
             if (logoSrc && logoSrc.startsWith('data:image')) {
                 // Extract base64 data from the Data URL
@@ -965,7 +965,7 @@
 
             URL.revokeObjectURL(url);
             
-            
+
         });
 
         // Initialize everything when the page loads
