@@ -786,7 +786,7 @@ Ajouter aux Contacts</p>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <a href="mailto:sam.notaire13@gmail.com">sam.notaire13@gmail.com</a>
-                    </div>                    
+                    </div>                     
                 </div>
             </div>
         </div>
@@ -941,10 +941,10 @@ Ajouter aux Contacts</p>
                         "N:" + lastName + ";" + firstName + ";;;\n" +
                         "FN:" + contactName + "\n" +
                         "ORG:" + organization + "\n" +
-                        "TEL:" + contactPhone + "\n" +
-                        "ADR:;;" + contactAddress + ";;;\n" +
-                        "EMAIL:" + contactEmail + "\n" +
-                        "URL:" + contactWebsite + "\n";
+                        "TEL;TYPE=CELL,VOICE:" + contactPhone + "\n" +
+                        "ADR;TYPE=WORK:;;" + contactAddress + ";;;\n" +
+                        "EMAIL;TYPE=WORK:" + contactEmail + "\n" +
+                        "URL;TYPE=WORK:" + contactWebsite + "\n";
                     
                     if (logoData && logoData.startsWith('data:image')) {
                         var base64Data = logoData.split(',')[1];
