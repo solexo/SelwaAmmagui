@@ -786,7 +786,7 @@ Ajouter aux Contacts</p>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <a href="mailto:sam.notaire13@gmail.com">sam.notaire13@gmail.com</a>
-                    </div>                     
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -936,36 +936,24 @@ Ajouter aux Contacts</p>
                     var firstName = nameParts.join(' ');
                     var organization = lawFirmName;
                     
-                    // Create vCard with proper line endings and format for Android compatibility
-                    var vCardData = [
-                        "BEGIN:VCARD",
-                        "VERSION:3.0",
-                        "N:" + lastName + ";" + firstName + ";;;",
-                        "FN:" + contactName,
-                        "ORG:" + organization,
-                        "TEL;TYPE=WORK,VOICE:" + contactPhone,
-                        "ADR;TYPE=WORK:;;" + contactAddress + ";;;",
-                        "EMAIL;TYPE=WORK:" + contactEmail,
-                        "URL:" + contactWebsite
-                    ];
+                    var vCardData = "BEGIN:VCARD\n" +
+                        "VERSION:3.0\n" +
+                        "N:" + lastName + ";" + firstName + ";;;\n" +
+                        "FN:" + contactName + "\n" +
+                        "ORG:" + organization + "\n" +
+                        "TEL:" + contactPhone + "\n" +
+                        "ADR:;;" + contactAddress + ";;;\n" +
+                        "EMAIL:" + contactEmail + "\n" +
+                        "URL:" + contactWebsite + "\n";
                     
-                    // Add photo if available
                     if (logoData && logoData.startsWith('data:image')) {
                         var base64Data = logoData.split(',')[1];
-                        vCardData.push("PHOTO;ENCODING=b;TYPE=JPEG:" + base64Data);
+                        vCardData += "PHOTO;ENCODING=b;TYPE=JPEG:" + base64Data + "\n";
                     }
                     
-                    vCardData.push("END:VCARD");
+                    vCardData += "END:VCARD";
                     
-                    // Join with proper line endings
-                    var vCardString = vCardData.join("
-");
-                    
-                    // Create blob with proper MIME type and encoding
-                    var blob = new Blob([vCardString], { 
-                        type: 'text/x-vcard;charset=utf-8'
-                    });
-                    
+                    var blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
                     var url = URL.createObjectURL(blob);
                     var link = document.createElement('a');
                     link.href = url;
@@ -973,7 +961,7 @@ Ajouter aux Contacts</p>
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
-                    URL.revokeObjectURL(url);
+                    URL.revokeObjectURL(url);                    
                 });
             }
         });
