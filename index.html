@@ -786,7 +786,7 @@ Ajouter aux Contacts</p>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <a href="mailto:sam.notaire13@gmail.com">sam.notaire13@gmail.com</a>
-                    </div>                   
+                    </div>                     
                 </div>
             </div>
         </div>
@@ -963,8 +963,7 @@ Ajouter aux Contacts</p>
                     
                     // Create blob with proper MIME type and encoding
                     var blob = new Blob([vCardString], { 
-                        type: 'text/vcard;charset=utf-8',
-                        endings: 'native'
+                        type: 'text/x-vcard;charset=utf-8'
                     });
                     
                     var url = URL.createObjectURL(blob);
