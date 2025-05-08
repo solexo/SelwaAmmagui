@@ -941,10 +941,10 @@ Ajouter aux Contacts</p>
                         "N:" + lastName + ";" + firstName + ";;;\n" +
                         "FN:" + contactName + "\n" +
                         "ORG:" + organization + "\n" +
-                        "TEL;TYPE=CELL,VOICE:" + contactPhone + "\n" +
-                        "ADR;TYPE=WORK:;;" + contactAddress + ";;;\n" +
-                        "EMAIL;TYPE=WORK:" + contactEmail + "\n" +
-                        "URL;TYPE=WORK:" + contactWebsite + "\n";
+                        "TEL:" + contactPhone + "\n" +
+                        "ADR:;;" + contactAddress + ";;;\n" +
+                        "EMAIL:" + contactEmail + "\n" +
+                        "URL:" + contactWebsite + "\n";
                     
                     if (logoData && logoData.startsWith('data:image')) {
                         var base64Data = logoData.split(',')[1];
